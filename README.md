@@ -6,3 +6,5 @@ The good old game of Snake!
 - Instances
 - States
 
+## Example of the code:
+Insert Gif!!
