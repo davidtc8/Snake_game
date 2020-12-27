@@ -7,4 +7,4 @@ The good old game of Snake!
 - States
 
 ## Example of the code:
-Insert Gif!!
+![snake_game](snake_game.gif)
