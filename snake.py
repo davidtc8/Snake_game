@@ -1,7 +1,7 @@
 from turtle import Turtle
 
 # variables for the game:
-x_positions = [0, -20, -40]
+positions = [(0,0), (-20,0), (-40,0)]
 move_distance = 20
 up = 90
 down = 270
@@ -16,12 +16,18 @@ class Snake:
         self.head = self.snake_body[0]
 
     def create_snake(self):
-        for position in x_positions:
-            new_segment = Turtle (shape='square')
-            new_segment.color ('red')
-            new_segment.penup ()
-            new_segment.goto (x= position, y=0)
-            self.snake_body.append (new_segment)
+        for position in positions:
+            self.add_segment(position)
+
+    def add_segment(self, position):
+        new_segment = Turtle (shape='square')
+        new_segment.color ('red')
+        new_segment.penup ()
+        new_segment.goto (position)
+        self.snake_body.append (new_segment)
+
+    def extend(self):
+        self.add_segment(self.snake_body[-1].position())
 
     def move(self):
         for part in range (len (self.snake_body) - 1, 0, -1):
