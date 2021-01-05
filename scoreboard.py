@@ -12,18 +12,22 @@ class Scoreboard(Turtle):
         self.hideturtle()
         self.penup()
         self.score = 0
-        self.write(f"Scoreboard: {self.score}", True, align="center", font=('Courier', 18, 'bold'))
+        self.high_score = 0
+        self.update_scoreboard()
 
-    def game_over(self):
-        self.color ('white')
-        self.penup ()
-        self.goto (0, 0)
-        self.write (f"😥 GAME OVER Unu 😥", True, align="center", font=('Courier', 18, 'bold'))
+    def update_scoreboard(self):
+        self.clear()
+        self.goto (0, 270)
+        self.write(f"Scoreboard: {self.score} High Score: {self.high_score}", True, align="center", font=('Courier', 18, 'bold'))
+
+    def reset(self):
+        if self.score > self.high_score:
+            self.high_score = self.score
+        self.score = 0
+        self.update_scoreboard()
 
     def score_points(self):
         self.score += 1
-        self.clear()
-        self.goto (0, 270)
-        self.write (f"Scoreboard: {self.score}", True, align="center", font=('Courier', 18, 'bold'))
+        self.update_scoreboard()
 
 
